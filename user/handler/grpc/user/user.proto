@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package user;
+
+
+service UserAPI {
+    rpc GetUsers(User) returns (Users) {}
+    rpc Show(User) returns (User) {}
+    rpc Delete(User) returns (Empty) {}
+    rpc Invite(User) returns (Empty) {}
+    rpc Activate(ActivateRequest) returns (ActivateResponse) {}
+}
+
+message User {
+    int64 id = 1;
+    int64 team_id = 2;
+    string name = 3;
+    string email = 4;
+    string password = 5;
+    bool isOwner = 8;
+}
+
+
+
+message ActivateRequest {
+    string code = 1;
+}
+
+message ActivateResponse {
+    string token = 1;
+}
+
+message Users {
+    repeated User Users = 1;
+}
+
+message Empty {}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+package team;
+import "github.com/Bo0km4n/go-protobuf-ref-sample/user/handler/grpc/user/user.proto";
+service TeamAPI {
+}
+
+message Team {
+    int64 id = 1;
+    string name = 2;
+    user.User users = 3;
+}
+
+message InviteRequest {
+    string team = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message ActivateRequest {
+    string code = 1;
+}
+
+message ActivateResponse {
+    string token = 1;
+}
+
+message Empty {}
