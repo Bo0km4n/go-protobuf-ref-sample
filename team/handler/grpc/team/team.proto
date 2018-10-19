@@ -7,7 +7,7 @@ service TeamAPI {
 message Team {
     int64 id = 1;
     string name = 2;
-    user.User users = 3;
+    user.Users users = 3;
 }
 
 message InviteRequest {
